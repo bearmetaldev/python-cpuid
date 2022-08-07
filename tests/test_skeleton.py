@@ -1,6 +1,6 @@
 import pytest
 
-from python_cpuid.skeleton import fib, main
+from bindings.skeleton import fib, main
 
 __author__ = "Olivier Desenfans"
 __copyright__ = "Olivier Desenfans"

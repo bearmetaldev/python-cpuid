@@ -6,11 +6,19 @@
     PyScaffold helps you to put up the scaffold of your new Python project.
     Learn more under: https://pyscaffold.org/
 """
-from setuptools import setup
+from setuptools import Extension, setup
 
 if __name__ == "__main__":
+
+    cpuid_module = Extension(
+        "cpuid.bindings",
+        sources=["src/cpuid/cpuid_bindings.c"],
+    )
     try:
-        setup(use_scm_version={"version_scheme": "no-guess-dev"})
+        setup(
+            use_scm_version={"version_scheme": "no-guess-dev"},
+            ext_modules=[cpuid_module],
+        )
     except:  # noqa
         print(
             "\n\nAn error occurred while building the project, "
