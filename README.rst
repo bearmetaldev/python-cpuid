@@ -73,8 +73,8 @@ Why?
 Other projects already provide this functionality. To the best of our knowledge:
 
 * `PyCPUID <https://github.com/ngnpope/pycpuid>_` is not compatible with Python 3.
-  An `open PR <https://github.com/ngnpope/pycpuid/pull/4>_` from 2015 proposes an upgrade.
-* `cpuid.py <https://github.com/flababah/cpuid.py>_` looks fun, but ultimately is machine
+  An `open PR <https://github.com/ngnpope/pycpuid/pull/4>`_ from 2015 proposes an upgrade.
+* `cpuid.py <https://github.com/flababah/cpuid.py>`_ looks fun, but ultimately is machine
   code injection. We wanted something more auditable.
 
 Notes
