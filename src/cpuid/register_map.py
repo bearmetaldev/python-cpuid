@@ -69,19 +69,3 @@ def register_map(cls):
         return _generate_regmap_methods(cls)
 
     return wrap(cls)
-
-#
-# @register_map
-# class Test:
-#     int_field = RegisterField(int, offset=3, length=4)
-#     f3 = BooleanField(2)
-#     f2 = BooleanField(1)
-#     f1 = BooleanField(0)
-#
-#
-# # t = Test()
-# t = Test.from_register_value(0xFF)
-# print(t.int_field)
-# print(t.f3)
-# print(t.f2)
-# print(t.f1)
