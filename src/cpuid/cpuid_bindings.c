@@ -18,7 +18,7 @@ static PyObject* cpuid(PyObject* self, PyObject* args)
         return NULL;
     }
 
-    return Py_BuildValue("iiii", eax, ebx, ecx, edx);
+    return Py_BuildValue("IIII", eax, ebx, ecx, edx);
 }
 
 
