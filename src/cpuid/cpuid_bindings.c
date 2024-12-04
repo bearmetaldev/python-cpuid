@@ -21,9 +21,29 @@ static PyObject* cpuid(PyObject* self, PyObject* args)
     return Py_BuildValue("IIII", eax, ebx, ecx, edx);
 }
 
+static PyObject* cpuid_count(PyObject* self, PyObject* args)
+{
+    unsigned int level;
+    unsigned int count;
+    unsigned int eax, ebx, ecx, edx;
+
+    if (!PyArg_ParseTuple(args, "II:cpuid_count", &level, &count)) {
+        return NULL;
+    }
+
+    int result = __get_cpuid_count(level, count, &eax, &ebx, &ecx, &edx);
+    if (result == 0) {
+        PyErr_Format(PyExc_ValueError, "Unsupported MSR: 0x%08x or count 0x%08x", level, count);
+        return NULL;
+    }
+
+    return Py_BuildValue("IIII", eax, ebx, ecx, edx);
+}
+
 
 static PyMethodDef CpuidMethods[] = {
     {"cpuid",  cpuid, METH_VARARGS, "Call cpuid. Returns the result as a tuple of (eax, ebx, ecx, edx)."},
+    {"cpuid_count",  cpuid_count, METH_VARARGS, "Call cpuid with subleaf. Returns the result as a tuple of (eax, ebx, ecx, edx)."},
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
 
