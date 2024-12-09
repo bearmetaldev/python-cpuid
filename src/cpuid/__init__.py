@@ -1,1 +1,1 @@
-from cpuid.bindings import cpuid    # Re-export the bindings to cpuid
+from cpuid.bindings import cpuid, cpuid_count    # Re-export the bindings to cpuid
